@@ -1,0 +1,33 @@
+{
+  "name": "autohome.dealer",
+  "version": "1.0.0",
+  "description": "autohome dealer Group",
+  "homepage": "http://www.autohome.com.cn",
+  "author": "zhangguofeng@autohome.com.cn",
+  "devDependencies": {
+    "bignumber.js": "^2.3.0",
+    "browser-sync": "^2.11.2",
+    "browserify": "^13.0.0",
+    "dealermass": "^1.1.7",
+    "del": "^2.2.0",
+    "fs": "0.0.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cdn-upload": "0.0.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.7.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-cdn": "0.0.1",
+    "gulp-sequence": "^0.4.5",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tinypng": "^1.0.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "require-dir": "^0.3.0",
+    "through2": "^2.0.1"
+  },
+  "dependencies": {}
+}

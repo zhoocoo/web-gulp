@@ -1,0 +1,72 @@
+
+
+
+
+
+
+//截字
+%ellipsis-basic {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  //文字超出后以...显示 支持多行
+@mixin fn-ellpisis($line) {
+    display: -webkit-box;
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    -webkit-line-clamp: $line;
+    overflow: hidden;
+  }
+
+  %box-sizing-border{
+      box-sizing: border-box;
+  }
+
+  $fontsize-28: ptr(28px)!default;
+  $fontsize-24: ptr(24px)!default;
+
+  $gray-text-lighter:gray;
+
+
+/*
+基础样式定义 按钮
+by 2018-06-12
+*/
+
+$btn-blue-light:      #e9f1ff;
+$btn-blue-disabled:   #93b9ff;
+
+
+.dlr-btn{
+  display:inline-block;
+  text-align:center;
+  border-radius:ptrd(4);
+  /* 默认 88高 */
+  &.dlr-btn-blue{
+    height: ptrd(88);
+    line-height: ptrd(88);
+    background-color:blueviolet;
+    color:$white;
+    // font-size:$fontsize-32;
+    &.blue-light{
+      background-color:skyblue;
+      color:blue;
+    }
+  }
+  &.dlr-btn-blue-small{
+    height: ptrd(60);
+    line-height: ptrd(60);
+    // font-size:$fontsize-24;
+    background-color:blue;
+    color:$white;
+    &.blue-light{
+      background-color:skyblue;
+      color:blue;
+    }
+  }
+  &.dlr-btn-blue-disabled{
+    opacity: .5;
+  }
+}

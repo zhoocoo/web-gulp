@@ -1,0 +1,92 @@
+@charset "UTF-8";
+//去掉单位
+@function strip-units($number){
+    @return $number / ($number * 0 + 1);
+}
+//px转换rem
+@function ptr($px){
+  $browser-default-font-size: 20px!default;
+  @return $px / $browser-default-font-size * 1rem;
+}
+
+//px转换rem(兼容旧版本方法)
+@function ptr($px, $default:20px){
+  @return $px / $default * 1rem;
+}
+//px转换rem（设计稿实际尺寸）
+@function ptrd($px, $default:20){
+	@return strip-units($px) / $default / 2 * 1rem;
+}
+
+//px转换rem（设计稿实际尺寸, 针对6p）
+@function ptrp($px, $default:20px){
+  @return $px / $default / 3 * 1rem;
+}
+
+// px转百分比
+$psdWidth: 750 !default;
+@function p2p($px) {
+  @return $px / $psdWidth * 100%;
+}
+
+
+//字号
+$fontsize-tiny:          ptr(12px)!default;
+$fontsize-small:         ptr(14px)!default;
+$fontsize-default:       ptr(16px)!default;
+$fontsize-large:         ptr(18px)!default;
+$fontsize-big:           ptr(20px)!default;
+//圆角
+$radius:                 ptr(2px)!default;
+//颜色
+$gray-text:              #444444!default;
+$gray-text-light:        #888888!default;
+$gray-text-lighter:      #cccccc!default;
+$gray-back:              #f3f3f3!default;
+$gray-back-light:        #f5f5f5!default;
+$gray-border:            #e3e3e3!default;
+$gray-border-light:      #f3f3f3!default;
+$gray-border-lighter:    #cccccc!default;
+$blue:                   #3b5998!default;
+$blue-light:             #2f75bb!default;
+$red:                    #d60000!default;
+$red-light:              #f43531!default;
+$orange:                 #ff6600!default;
+$green:                  #66bb00!default;
+$white:                  #ffffff!default;
+
+//全局设定
+html{ background-color:$gray-back; font:20px/1 "PingFang SC",Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei",STHeiTi,sans-serif; color: $gray-text;}
+
+body{
+  font-size:ptrd(32px);
+}
+
+
+//汽车之家logo图标
+.athm              { display: inline-block; background: url("//s.autoimg.cn/mass/v2/img/logo.png") no-repeat; background-size: ptr(100px) auto;}
+//加载图标
+.load              { display: inline-block; width: ptr(12px); height: ptr(12px); background: url("//s.autoimg.cn/dealer/m/publicimg/loading.gif") no-repeat; background-size: 100% 100%; opacity: 0.8;}
+//常用样式
+.fn-mt             { margin-top: ptr(8px);}
+.fn-mb             { margin-bottom: ptr(8px);}
+.fn-mt-large       { margin-top: ptr(12px);}
+.fn-mb-large       { margin-bottom: ptr(12px);}
+.fn-mlr            { margin-left: ptr(8px); margin-right: ptr(8px);}
+.fn-mlr-large      { margin-left: ptr(12px); margin-right: ptr(12px);}
+.fn-halfword       { margin-right: 0.5em;}
+.fn-oneword        { margin-right: 1em;}
+.fn-hide           { display: none !important;}
+.fn-right		       {float:right;}
+
+//颜色定义
+.c-orange		   		 {color:$orange;}
+.c-green		   		 {color:$green;}
+.c-red			   		 {color:$red;}
+
+
+//iso下tab事件兼容
+[data-role="tab"] .item 					{ cursor: pointer;}
+.clearfix:before,.clearfix:after{content:"";display:table;} 
+.clearfix:after{clear:both;} 
+.clearfix{*zoom:1;/*IE/7/6*/}

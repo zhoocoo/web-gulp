@@ -1,0 +1,272 @@
+@charset "UTF-8";
+//图片尺寸
+%img24x24             { width: ptr(24px); height:ptr(24px);}
+%img32x32             { width: ptr(32px); height:ptr(32px);}
+%img50x50             { width: ptr(50px); height:ptr(50px);}
+%img90x68             { width: ptr(90px); height:ptr(68px);}
+%img140x105           { width: ptr(140px); height:ptr(105px);}
+%img140x105screen360  { width: ptr(160px); height:ptr(120px);}
+%img140x79            { width: ptr(140px); height:ptr(79px);}
+%img140x79screen360   { width: ptr(160px); height:ptr(90px);}
+
+//预设样式
+%appearance {
+  @include appearance(none);
+}
+
+//盒模型
+%box-sizing-border {
+  @include box-sizing;
+}
+%box-sizing-content {
+  @include box-sizing(content-box);
+}
+
+//清除浮动
+%clearfloat {
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+//截字
+%ellipsis-basic {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//预加载图
+%holdimg {
+  background: url("//s.autoimg.cn/as/static/holdimg_white.png") center center no-repeat;
+  background-size: 60% auto;
+}
+
+//快速滚动
+%scrolling-touch {
+  -webkit-overflow-scrolling:touch;
+  overflow-scrolling:touch;
+}
+//文字垂直居中
+%boxpack-center{
+  display: box; 
+  display: -webkit-box; 
+  display: -moz-box; 
+  -webkit-box-pack:center; 
+  -moz-box-pack:center; 
+  -webkit-box-align:center; 
+  -moz-box-align:center; 
+}
+
+//广告标签
+%mark-adv {
+  content: "\5e7f\544a";
+  display: inline-block;
+  padding: ptr(2px) ptr(2px) ptr(1px);
+  font-size: ptr(10px);
+  color: #999;
+  line-height: 1;
+  border: solid #ccc 1px;
+  border-radius: $radius;
+}
+%mark-advimg {
+  content: "\5e7f\544a";
+  display: inline-block;
+  padding: ptr(2px) ptr(2px) ptr(2px);
+  font-size: ptr(10px);
+  color: $white;
+  line-height: 1;
+  border: solid $white 1px;
+  border-radius: $radius;
+  text-shadow: 1px 1px 0 rgba(#060001,0.6);
+  box-shadow: 0 1px 0 rgba(#060001,0.2);
+}
+//border三角
+%triangle-basic {
+  content:"";
+  height: 0;
+  width: 0;
+  overflow:hidden;
+  display:inline-block;
+}
+
+
+
+@mixin triangle($direction, $size, $borderColor ) {
+  @extend %triangle-basic;
+  @if $direction == top {
+    border-bottom:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+   
+  }
+  @else if $direction == right {
+    border-left:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+
+  }
+  @else if $direction == bottom {
+    border-top:$size solid $borderColor;
+    border-left:$size dashed transparent;
+    border-right:$size dashed transparent;
+    
+  }
+  @else if $direction == left {
+    border-right:$size solid $borderColor;
+    border-top:$size dashed transparent;
+    border-bottom:$size dashed transparent;
+
+  }
+}
+
+//赞动画
+@-webkit-keyframes praisepoint {
+  0% { -webkit-transform: scale(1); transform: scale(1); }
+  80% { -webkit-transform: scale(2); transform: scale(2);}
+  100% { -webkit-transform: scale(1); transform: scale(1);}
+}
+@keyframes praisepoint {
+  0% { -webkit-transform: scale(1); transform: scale(1);}
+  80% { -webkit-transform: scale(2); transform: scale(2);}
+  100% { -webkit-transform: scale(1); transform: scale(1);}
+}
+
+//行高和高相同
+@mixin height($height) {
+  height:ptrd($height);
+  line-height:ptrd($height);
+}
+
+//左右结构列表
+@mixin titlecard($title,$card,$width) {
+  .#{$title}{
+    width:ptrd($width);
+    float:left;
+    text-align:right;
+  }
+  .#{$card}{
+    margin-left:ptrd($width);
+  }
+}
+
+//点击区域背景色
+@mixin high-light($opacity) {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, $opacity);
+}
+
+
+//文字超出后以...显示 支持多行
+@mixin fn-ellpisis($line) {
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+//用translate居中
+//@include translateCenter(absolute)
+@mixin translateCenter($position){ 
+  position: $position;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+//用flex进行居中，居中的是块级元素
+%flexCenter { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+//文字垂直居中
+%boxpack-center{
+  display: box; 
+  display: -webkit-box; 
+  display: -moz-box; 
+  -webkit-box-pack:center; 
+  -moz-box-pack:center; 
+  -webkit-box-align:center; 
+  -moz-box-align:center; 
+}
+
+// 用 max-width 来防止图片撑破容器 多用于富文本编辑器出来的图片控制
+%max-img { 
+  display: block; 
+  max-width: 100%; 
+  height: auto !important; 
+}
+
+
+// 容器宽高比固定
+// 100* 1/1 = 100%
+// 100* 3/4 = 75%
+// 例：@include fixed-ratio(75%);
+@mixin fixed-ratio($padding-top: 100%) {
+  width: 100%; 
+  height: 0; 
+  padding-top: $padding-top;
+}
+
+
+
+// 美化占位符 placeholder 样式
+// 例：@include beauty-placeholder(20px, #666, right);
+@mixin beauty-placeholder($fz, $color: #999, $align: left) {
+  &::-webkit-input-placeholder { font-size: $fz; color: $color; text-align: $align; }
+}
+
+
+// 1 像素边框问题
+//例：@include onepx(#f00);
+@mixin onepx($border-color:#eee) {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid $border-color;
+    transform: scaleY(0.5);
+  }
+}
+
+// 箭头
+//arrow(direction,size,color);
+//例：@include arrow(bottom,10px,#F00); 下方10PX红色箭头
+@mixin arrow($direction,$size,$color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-width: $size;
+    cursor: pointer;
+    @if $direction == top {
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-style: solid dashed dashed dashed;
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
+
+
