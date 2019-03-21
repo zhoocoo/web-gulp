@@ -7,7 +7,6 @@ var cdnImporter = require('@node-sass/cdn-importer');
 var rename  = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var fs          = require('fs');
-var handlerError = require('../util/handleError')
 
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -50,7 +49,6 @@ module.exports = function(paths,browserSync){
 	// gulp.src(paths.dev.sass+'app\\**\\*'+'*.scss')
   	.pipe(sourcemaps.init())
     .pipe(sass({outputStyle:'compressed',importer: [cdnImporter]}))
-    // .on("error", handlerError('test'))
 	.on("error", notify.onError("Error: <%= error.message %>"))
     .pipe(autoprefixer({
     	browsers:['ios>=8','android>=4.0']
