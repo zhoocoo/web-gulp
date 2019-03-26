@@ -24,9 +24,12 @@
 6. gulp releaseAndBackup --- 发布并备份
 7. gulp clean 清除发布和备份的文件
 
+## 使用cdn地址的sass路径
+
+请查阅使用[教程](https://www.npmjs.com/package/@node-sass/cdn-importer)
 
 ## 目录结构
-
+```
 ├──项目名称
 │   ├── _dev
 │   │   ├── css
@@ -60,6 +63,7 @@
 │  gulpfile.js
 │   │ 
 └── package.json  
+```
 
 
 

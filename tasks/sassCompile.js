@@ -39,17 +39,13 @@ module.exports = function(paths,browserSync){
 		gulp.src([paths.dev.sass+'font/*.{eot,svg,ttf,woff}'])
 		.pipe(gulp.dest(paths.dev.html+'font/'))
 	};
-	
-	//gulp.src(paths.dev.sass+'app/'+".\\**\\*"+'*.scss')
-	// gulp.src(paths.dev.sass+'app/*.scss')
 	gulp.src(path.format({
         dir:paths.dev.sass+'app/**/',
         base:'*.scss'
     }))
-	// gulp.src(paths.dev.sass+'app\\**\\*'+'*.scss')
   	.pipe(sourcemaps.init())
     .pipe(sass({outputStyle:'compressed',importer: [cdnImporter]}))
-	.on("error", notify.onError("Error: <%= error.message %>"))
+    .on("error", notify.onError("Error: <%= error.message %>"))
     .pipe(autoprefixer({
     	browsers:['ios>=8','android>=4.0']
     }))
