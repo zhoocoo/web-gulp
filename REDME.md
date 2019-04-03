@@ -12,7 +12,44 @@
 * `npm install` 安装package.json里依赖的模块
 
 ## 运行gulp命令
-* `gulp taskname` 运行gulpfile.js里定义的相应命令，执行相应操作
+* 进入到`src`下，新建项目(如`project_2`)，目录如下（仅需建立`_dev`）
+  * ```
+    ├──项目名称
+    │   ├── _dev
+    │   │   ├── css
+    │   │   ├── img
+    │   │   ├── js
+    │   │   ├── sass
+    │   │   │    ├─ app
+    │   │   │    ├─ font
+    │   │   │    └─ module
+    │   │   └── xx.html
+    │   ├── _release(生成的)
+    │   │   ├── v1.0.0
+    │   │   ├── v1.0.1
+    │   │   ├── v1.0.2
+    │   │   └── ......
+    │   ├── _source（生成的）
+    │   │   ├── v1.0.0
+    │   │   ├── v1.0.1
+    │   │   ├── v1.0.2
+    │   │   └── ......
+    │   ├── node_modules(生成的)
+    │   │    └── .......
+    │   ├── tasks
+    │   │   ├── sassCompress.js
+    │   │   ├── imgCompress.js
+    │   │   ├── jsCompress.js
+    │   │   ├── jsConcat.js
+    │   │   ├── releaseAndBackup.js
+    │   │   └── .......
+    │   │ 
+    │  gulpfile.js
+    │   │ 
+    └── package.json  
+    ```
+* `cd project_2/`进入新建项目内
+* `gulp help` 运行gulpfile.js里定义的相应命令，执行相应操作
 
 
 ## 常用任务
@@ -27,43 +64,6 @@
 ## 使用cdn地址的sass路径
 
 请查阅使用[教程](https://www.npmjs.com/package/@node-sass/cdn-importer)
-
-## 目录结构
-```
-├──项目名称
-│   ├── _dev
-│   │   ├── css
-│   │   ├── img
-│   │   ├── js
-│   │   ├── sass
-│   │   │    ├─ app
-│   │   │    ├─ font
-│   │   │    └─ module
-│   │   └── xx.html
-│   ├── _release(生成的)
-│   │   ├── v1.0.0
-│   │   ├── v1.0.1
-│   │   ├── v1.0.2
-│   │   └── ......
-│   ├── _source（生成的）
-│   │   ├── v1.0.0
-│   │   ├── v1.0.1
-│   │   ├── v1.0.2
-│   │   └── ......
-│   ├── node_modules(生成的)
-│   │    └── .......
-│   ├── tasks
-│   │   ├── sassCompress.js
-│   │   ├── imgCompress.js
-│   │   ├── jsCompress.js
-│   │   ├── jsConcat.js
-│   │   ├── releaseAndBackup.js
-│   │   └── .......
-│   │ 
-│  gulpfile.js
-│   │ 
-└── package.json  
-```
 
 
 

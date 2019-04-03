@@ -2,8 +2,6 @@
   "name": "autohome.dealer",
   "version": "1.0.0",
   "description": "autohome dealer Group",
-  "homepage": "http://www.autohome.com.cn",
-  "author": "zhangguofeng@autohome.com.cn",
   "devDependencies": {
     "bignumber.js": "^2.3.0",
     "browser-sync": "^2.11.2",
@@ -29,5 +27,7 @@
     "require-dir": "^0.3.0",
     "through2": "^2.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "portfinder": "^1.0.20"
+  }
 }

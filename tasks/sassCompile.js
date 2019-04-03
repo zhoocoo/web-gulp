@@ -34,7 +34,6 @@ var author = ['/*!',
 
 
 module.exports = function(paths,browserSync){
-	
 	if (fs.existsSync(paths.dev.sass+'font/')){
 		gulp.src([paths.dev.sass+'font/*.{eot,svg,ttf,woff}'])
 		.pipe(gulp.dest(paths.dev.html+'font/'))
